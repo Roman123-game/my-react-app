@@ -6,9 +6,9 @@ const RandomNumberGenerator = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const intervalRef = useRef(null);
 
-  function generateRandomNumber() {
-    return Math.floor(Math.random() * 100) + 1;
-  }
+function generateRandomNumber() {
+  return Math.floor(Math.random() * 91) + 10; // Range: 10-100
+}
 
   const handleClick = () => {
     if (isAnimating) return; // Prevent multiple clicks during animation
@@ -35,7 +35,7 @@ const RandomNumberGenerator = () => {
 
   return (
     <div className="rng-container">
-      <h2 className="rng-title">Генератор Случайных чисел 1-100</h2>
+      <h2 className="rng-title">Генератор Случайных чисел 10-100</h2>
       <div className={`rng-number ${isAnimating ? 'running' : ''}`}>{number}</div>
       <button className="rng-button" onClick={handleClick} disabled={isAnimating}>
         {isAnimating ? 'Генерирует...' : 'Сгенерирорвать Число'}
