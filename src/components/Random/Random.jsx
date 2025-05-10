@@ -35,7 +35,7 @@ const RandomNumberGenerator = () => {
 
   return (
     <div className="rng-container">
-      <h2 className="rng-title">Random Number Generator</h2>
+      <h2 className="rng-title">Генератор Случайных чисел 1-100</h2>
       <div className={`rng-number ${isAnimating ? 'running' : ''}`}>{number}</div>
       <button className="rng-button" onClick={handleClick} disabled={isAnimating}>
         {isAnimating ? 'Generating...' : 'Generate New Number'}
