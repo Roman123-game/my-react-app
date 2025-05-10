@@ -1,0 +1,48 @@
+import React, { useState, useEffect, useRef } from 'react';
+import './Random.css'; // Make sure you have styles defined
+
+const RandomNumberGenerator = () => {
+  const [number, setNumber] = useState(generateRandomNumber());
+  const [isAnimating, setIsAnimating] = useState(false);
+  const intervalRef = useRef(null);
+
+  function generateRandomNumber() {
+    return Math.floor(Math.random() * 100) + 1;
+  }
+
+  const handleClick = () => {
+    if (isAnimating) return; // Prevent multiple clicks during animation
+
+    setIsAnimating(true);
+
+    // Start "running" animation
+    intervalRef.current = setInterval(() => {
+      setNumber(generateRandomNumber());
+    }, 100);
+
+    // Stop after 2 seconds and show final number
+    setTimeout(() => {
+      clearInterval(intervalRef.current);
+      setNumber(generateRandomNumber());
+      setIsAnimating(false);
+    }, 2000);
+  };
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => clearInterval(intervalRef.current);
+  }, []);
+
+  return (
+    <div className="rng-container">
+      <h2 className="rng-title">Random Number Generator</h2>
+      <div className={`rng-number ${isAnimating ? 'running' : ''}`}>{number}</div>
+      <button className="rng-button" onClick={handleClick} disabled={isAnimating}>
+        {isAnimating ? 'Generating...' : 'Generate New Number'}
+      </button>
+    </div>
+  );
+};
+
+export default RandomNumberGenerator;
+
