@@ -28,7 +28,7 @@
 .rng-button {
   padding: 10px 25px;
   font-size: 1rem;
-  background-color: #007bff;
+
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -38,4 +38,10 @@
 
 .rng-button:hover {
   background-color: #0056b3;
+}
+.grey{
+  background-color: gray;
+}
+.blue{
+  background-color: #007bff;
 }
