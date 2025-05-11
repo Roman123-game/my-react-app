@@ -35,7 +35,7 @@ const Random= () => {
 
     return (
         <div className="rng-container">
-            <h2 className="rng-title">Генератор Случайных чисел 10-100</h2>
+            <h2 className="rng-title">Генератор Случайных Чисел 10-100</h2>
             <div className={`rng-number ${isAnimating ? 'running' : ''}`}>{number}</div>
             <button className={`rng-button ${isAnimating ? 'grey' : 'blue'}`} onClick={handleClick} disabled={isAnimating}>
                 {isAnimating ? 'Генерирует...' : 'Сгенерировать Число'}
