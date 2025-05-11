@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Random.css'; // Make sure you have styles defined
 
-const RandomNumberGenerator = () => {
+const Random= () => {
     const [number, setNumber] = useState(generateRandomNumber());
     const [isAnimating, setIsAnimating] = useState(false);
     const intervalRef = useRef(null);
@@ -44,5 +44,5 @@ const RandomNumberGenerator = () => {
     );
 };
 
-export default RandomNumberGenerator;
+export default Random;
 
